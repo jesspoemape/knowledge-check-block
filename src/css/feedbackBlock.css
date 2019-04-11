@@ -1,0 +1,40 @@
+.feedbackWrapper {
+    background-color: #f8f8f8;
+    margin-bottom: 3em;
+    padding-top: 3em;
+    padding-bottom: 1.5em;
+    margin-top: 2em;
+}
+
+.feedbackHeader {
+    color: #313537;
+}
+
+.feedbackText {
+    color: #707070;
+}
+
+.iconContainer {
+    width: 2.75em;
+    height: 2.75em;
+    margin: 0 auto;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    text-align: center;
+    line-height: 7em;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: .1em solid #cacbcb;
+    -webkit-transition: opacity .6s .9s,-webkit-transform .6s .9s;
+    transition: opacity .6s .9s,-webkit-transform .6s .9s;
+    transition: opacity .6s .9s,transform .6s .9s;
+    transition: opacity .6s .9s,transform .6s .9s,-webkit-transform .6s .9s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconContainer img {
+    width: 30%;
+}

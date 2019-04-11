@@ -1,0 +1,54 @@
+.optionWrapper {
+    cursor: pointer;
+    padding: 1.5em 1em;
+}
+
+.optionWrapper label {
+    display: flex;
+    position: relative;
+}
+
+.optionWrapper:hover {
+    background: #f7f7f8;
+}
+
+.optionWrapper .radioInput {
+    margin-right: 2.5em;
+    border: .1em solid rgba(49,53,55,.2);
+    width: 1.5em;
+    height: 1.5em;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-transition: border-color .3s;
+    transition: border-color .3s;
+}
+
+.optionWrapper input {
+    display: none;
+}
+
+.optionWrapper input:checked~.radioInput:after {
+    opacity: 1;
+}
+
+.optionWrapper .radioInput:after {
+    content: "";
+    position: absolute;
+    top: .55em;
+    left: .55em;
+    display: block;
+    width: .6em;
+    height: .6em;
+    background: rgba(49,53,55,.8);
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transform: scale(.6);
+    -ms-transform: scale(.6);
+    transform: scale(.6);
+    -webkit-transition: opacity .3s,-webkit-transform .3s;
+    transition: opacity .3s,-webkit-transform .3s;
+    transition: opacity .3s,transform .3s;
+    transition: opacity .3s,transform .3s,-webkit-transform .3s;
+}
