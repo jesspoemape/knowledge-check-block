@@ -1,22 +1,41 @@
 .optionWrapper {
     cursor: pointer;
-    padding: 1.5em 1em;
+    padding: 2em 1em;
+}
+
+.optionWrapper:focus {
+    outline: none;
+    border: none;
 }
 
 .optionWrapper label {
     display: flex;
     position: relative;
+    font-size: 95%;
+    cursor: pointer;
 }
 
-.optionWrapper:hover {
+.optionWrapper.disabled label{
+    cursor: default;
+}
+
+.optionWrapper.disabled .radioInput {
+    cursor: default;
+}
+
+.optionWrapper.disabled {
+    cursor: default;
+}
+
+.optionWrapper:not(.disabled):hover {
     background: #f7f7f8;
 }
 
 .optionWrapper .radioInput {
-    margin-right: 2.5em;
-    border: .1em solid rgba(49,53,55,.2);
-    width: 1.5em;
-    height: 1.5em;
+    margin-right: 3em;
+    border: .075em solid rgba(49,53,55,.2);
+    width: 1.25em;
+    height: 1.25em;
     -webkit-border-radius: 50%;
     border-radius: 50%;
     cursor: pointer;
@@ -35,12 +54,12 @@
 .optionWrapper .radioInput:after {
     content: "";
     position: absolute;
-    top: .55em;
-    left: .55em;
+    top: 0.45em;
+    left: .4em;
     display: block;
     width: .6em;
     height: .6em;
-    background: rgba(49,53,55,.8);
+    background: #747a7e;
     -webkit-border-radius: 50%;
     border-radius: 50%;
     opacity: 0;

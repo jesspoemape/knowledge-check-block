@@ -1,17 +1,24 @@
 .feedbackWrapper {
     background-color: #f8f8f8;
-    margin-bottom: 3em;
-    padding-top: 3em;
+    margin-bottom: 2em;
+    padding-top: 2em;
     padding-bottom: 1.5em;
     margin-top: 2em;
 }
 
 .feedbackHeader {
     color: #313537;
+    font-family: Lato, sans-serif;
+    font-size: 75%;
+    letter-spacing: .02em;
+    font-weight: 700;
 }
 
 .feedbackText {
     color: #707070;
+    font-size: 90%;
+    font-weight: 300;
+    margin-top: 2em;
 }
 
 .iconContainer {
@@ -36,5 +43,5 @@
 }
 
 .iconContainer img {
-    width: 30%;
+    width: 35%;
 }

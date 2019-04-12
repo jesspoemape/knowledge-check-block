@@ -4,7 +4,7 @@ import '../css/questionContainer.css';
 const QuestionContainer = ({ imgSrc, questionText}) => {
     return (
         <div className="questionContainer">
-            <p>{questionText}</p>
+            <p className="questionText">{questionText}</p>
             <img src={imgSrc} alt="text" />
         </div>
     );

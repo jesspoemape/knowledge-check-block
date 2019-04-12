@@ -3,7 +3,7 @@ import '../css/option.css';
 
 const Option = ({ answer: { id, text }, selectedAnswer, changeSelectedAnswer, hasSubmitted }) => {
     return (
-        <div className="optionWrapper">
+        <div className={`optionWrapper${hasSubmitted ? ' disabled' : ''}`} onClick={() => hasSubmitted ? null : changeSelectedAnswer(id)} role="button" tabIndex={0}>
             <label>
                 <input
                     type="radio"

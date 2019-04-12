@@ -9,7 +9,7 @@ const FeedbackBlock = ({ feedbackText, didAnswerCorrectly }) => {
             <div className="iconContainer">
                 <img src={didAnswerCorrectly ? correct : incorrect} alt={didAnswerCorrectly ? 'checkmark' : 'x'} />
             </div>
-            <p>{didAnswerCorrectly ? 'Correct' : 'Incorrect'}</p>
+            <p className="feedbackHeader">{didAnswerCorrectly ? 'Correct' : 'Incorrect'}</p>
             <p className="feedbackText">{feedbackText}</p>
         </div>
     );

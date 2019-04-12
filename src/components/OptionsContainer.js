@@ -1,9 +1,10 @@
 import React from 'react';
 import Option from './Option';
+import '../css/optionsContainer.css';
 
 const OptionsContainer = ({ possibleAnswers, selectedAnswer, changeSelectedAnswer, hasSubmitted }) => {
     return (
-        <div>
+        <div className="optionsContainer">
             {possibleAnswers.map(answer => (
                 <Option
                     key={answer.id}
