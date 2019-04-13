@@ -51,7 +51,7 @@
     opacity: 1;
 }
 
-.optionWrapper .radioInput:after {
+.optionWrapper .radioInput:not(.submitted):after {
     content: "";
     position: absolute;
     top: 0.45em;
@@ -70,4 +70,21 @@
     transition: opacity .3s,-webkit-transform .3s;
     transition: opacity .3s,transform .3s;
     transition: opacity .3s,transform .3s,-webkit-transform .3s;
+}
+
+.optionWrapper .radioInput.submitted:after {
+    position: absolute;
+    top: 0.1em;
+    left: .4em;
+    display: block;
+    width: .6em;
+    height: .6em;
+}
+
+.optionWrapper .radioInput.submitted[data-correct-answer="true"]:after {
+    content: url('../assets/checkmark.svg');
+}
+
+.optionWrapper .radioInput.submitted[data-correct-answer="false"]:after {
+    content: url('../assets/incorrect.svg');
 }

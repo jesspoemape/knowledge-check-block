@@ -33,6 +33,7 @@ const KnowledgeCheckBlockContainer = () => {
                 selectedAnswer={selectedAnswer}
                 changeSelectedAnswer={changeSelectedAnswer}
                 hasSubmitted={hasSubmitted}
+                correctAnswer={questions.question1.correctAnswer}
             />
             {!hasSubmitted && <button className={`submitButton${!selectedAnswer ? ' disabled' : ''}`} onClick={handleSubmit} disabled={!selectedAnswer}>Submit</button>}
             {hasSubmitted && (
