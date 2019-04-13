@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 import '../css/option.css';
 
 const Option = ({ answer: { id, text }, selectedAnswer, changeSelectedAnswer, hasSubmitted, correctAnswer }) => {
@@ -15,8 +16,12 @@ const Option = ({ answer: { id, text }, selectedAnswer, changeSelectedAnswer, ha
                     disabled={hasSubmitted}
                 />
                 <div className={`radioInput${hasSubmitted ? ' submitted' : ''}`} data-correct-answer={correctAnswer === id} />
+                
                 {text}
             </label>
+            <CSSTransition in={hasSubmitted && correctAnswer === id} timeout={1000} classNames="optionBorder">
+                <div className="border" />
+            </CSSTransition>
         </div>
     );
 }

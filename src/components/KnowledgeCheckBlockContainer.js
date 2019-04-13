@@ -1,4 +1,5 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import QuestionContainer from './QuestionContainer';
 import questions from '../data/mockQuestions';
 import '../css/knowledgeCheckBlockContainer.css';
@@ -13,18 +14,13 @@ const KnowledgeCheckBlockContainer = () => {
 
     const handleSubmit = () => {
         toggleHasSubmitted(true);
-        if (didAnswerCorrectly) {
-            console.log('correct! :)');
-        } else {
-            console.log('incorrect! :(');
-        }
     }
 
     const handleReset = () => {
         toggleHasSubmitted(false);
         changeSelectedAnswer(null);
     }
-
+    console.log('has submitted: ', hasSubmitted)
     return (
         <div className="container">
             <QuestionContainer imgSrc={questions.question1.image} questionText={questions.question1.question} />
@@ -35,17 +31,24 @@ const KnowledgeCheckBlockContainer = () => {
                 hasSubmitted={hasSubmitted}
                 correctAnswer={questions.question1.correctAnswer}
             />
-            {!hasSubmitted && <button className={`submitButton${!selectedAnswer ? ' disabled' : ''}`} onClick={handleSubmit} disabled={!selectedAnswer}>Submit</button>}
-            {hasSubmitted && (
-                <Fragment>
+            <CSSTransition in={!hasSubmitted} timeout={300} classNames="submitButton">
+                <button 
+                    className={`submitButton${!selectedAnswer ? ' disabled' : ''}`}
+                    onClick={handleSubmit}
+                    disabled={!selectedAnswer}
+                >
+                    Submit
+                </button>
+            </CSSTransition>
+            <CSSTransition in={hasSubmitted} timeout={1000} classNames="feedbackBlock">
+                <div>
                     <FeedbackBlock
                         feedbackText={questions.question1.feedbackMessage}
                         didAnswerCorrectly={didAnswerCorrectly}
                     />
                     <Reset resetQuestion={handleReset} />
-                </Fragment>
-                
-                )}
+                </div>
+            </CSSTransition>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 .optionWrapper {
     cursor: pointer;
     padding: 2em 1em;
+    position: relative;
 }
 
 .optionWrapper:focus {
@@ -87,4 +88,39 @@
 
 .optionWrapper .radioInput.submitted[data-correct-answer="false"]:after {
     content: url('../assets/incorrect.svg');
+}
+
+.border {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.optionBorder-enter {
+    opacity: 0;
+    width: 0;
+}
+
+.optionBorder-enter-active {
+    opacity: 1;
+    width: 100%;
+    border: 2px solid #747a7e;
+    transition: width 400ms ease-in, opacity 300ms;
+}
+
+.optionBorder-enter-done {
+    border: 2px solid #747a7e;
+    width: 100%;
+}
+
+.optionBorder-exit {
+    opacity: 1;
+    border: 2px solid #747a7e;
+}
+
+.optionBorder-exit-active {
+    opacity: 0;
+    border: none;
+    transition: opacity 300ms;
 }
