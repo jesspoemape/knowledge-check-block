@@ -20,7 +20,6 @@ const KnowledgeCheckBlockContainer = () => {
         toggleHasSubmitted(false);
         changeSelectedAnswer(null);
     }
-    console.log('has submitted: ', hasSubmitted)
     return (
         <div className="container">
             <QuestionContainer imgSrc={questions.question1.image} questionText={questions.question1.question} />
@@ -31,7 +30,7 @@ const KnowledgeCheckBlockContainer = () => {
                 hasSubmitted={hasSubmitted}
                 correctAnswer={questions.question1.correctAnswer}
             />
-            <CSSTransition in={!hasSubmitted} timeout={300} classNames="submitButton">
+            <CSSTransition in={!hasSubmitted} timeout={300} classNames="submitButton" unmountOnExit={false}>
                 <button 
                     className={`submitButton${!selectedAnswer ? ' disabled' : ''}`}
                     onClick={handleSubmit}
@@ -40,8 +39,8 @@ const KnowledgeCheckBlockContainer = () => {
                     Submit
                 </button>
             </CSSTransition>
-            <CSSTransition in={hasSubmitted} timeout={1000} classNames="feedbackBlock">
-                <div>
+            <CSSTransition in={hasSubmitted} timeout={600} classNames="feedbackBlock" unmountOnExit={false}>
+                <div className="feedbackBlock-exit-done">
                     <FeedbackBlock
                         feedbackText={questions.question1.feedbackMessage}
                         didAnswerCorrectly={didAnswerCorrectly}
