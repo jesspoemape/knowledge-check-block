@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import AnimateHeight from 'react-animate-height';
 import QuestionContainer from './QuestionContainer';
 import questions from '../data/mockQuestions';
 import '../css/knowledgeCheckBlockContainer.css';
@@ -30,7 +31,7 @@ const KnowledgeCheckBlockContainer = () => {
                 hasSubmitted={hasSubmitted}
                 correctAnswer={questions.question1.correctAnswer}
             />
-            <CSSTransition in={!hasSubmitted} timeout={300} classNames="submitButton" unmountOnExit={false}>
+            <CSSTransition in={!hasSubmitted} timeout={300} classNames="submitButton">
                 <button 
                     className={`submitButton${!selectedAnswer ? ' disabled' : ''}`}
                     onClick={handleSubmit}
@@ -39,15 +40,17 @@ const KnowledgeCheckBlockContainer = () => {
                     Submit
                 </button>
             </CSSTransition>
-            <CSSTransition in={hasSubmitted} timeout={600} classNames="feedbackBlock" unmountOnExit={false}>
-                <div className="feedbackBlock-exit-done">
-                    <FeedbackBlock
-                        feedbackText={questions.question1.feedbackMessage}
-                        didAnswerCorrectly={didAnswerCorrectly}
-                    />
-                    <Reset resetQuestion={handleReset} />
-                </div>
-            </CSSTransition>
+            <AnimateHeight duration={500} height={hasSubmitted ? 'auto' : 0}>
+                <CSSTransition in={hasSubmitted} timeout={1200} classNames="feedbackBlock">
+                    <div>
+                        <FeedbackBlock
+                            feedbackText={questions.question1.feedbackMessage}
+                            didAnswerCorrectly={didAnswerCorrectly}
+                        />
+                        <Reset resetQuestion={handleReset} />
+                    </div>
+                </CSSTransition>                
+            </AnimateHeight>
         </div>
     )
 }

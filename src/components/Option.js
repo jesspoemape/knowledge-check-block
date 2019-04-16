@@ -19,7 +19,7 @@ const Option = ({ answer: { id, text }, selectedAnswer, changeSelectedAnswer, ha
                 
                 {text}
             </label>
-            <CSSTransition in={hasSubmitted && correctAnswer === id} timeout={1000} classNames="optionBorder">
+            <CSSTransition in={hasSubmitted && correctAnswer === id} timeout={1500} classNames="optionBorder">
                 <div className="border" />
             </CSSTransition>
         </div>
