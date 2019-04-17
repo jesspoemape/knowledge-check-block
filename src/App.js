@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import KnowledgeCheckBlockContainer from './components/KnowledgeCheckBlockContainer';
+import mockQuestions from './data/mockQuestions';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <KnowledgeCheckBlockContainer />
-      </div>
-    );
-  }
-}
+const App = () => (
+    <div className="App">
+        {mockQuestions.map(question => <KnowledgeCheckBlockContainer key={question.id} questionData={question} />)}
+    </div>
+);
 
 export default App;

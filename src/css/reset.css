@@ -5,6 +5,7 @@
 .inner {
     cursor: pointer;
     border: none;
+    background-color: white;
 }
 
 .inner:hover .resetText {
@@ -33,8 +34,4 @@
     transform: scaleX(-1) rotate(-55deg);
         -webkit-transition: color .3s, opacity .3s;
     transition: color .3s, opacity .3s;
-}
-
-.resetIcon:hover {
-
 }

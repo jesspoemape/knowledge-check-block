@@ -46,6 +46,8 @@
     width: 35%;
 }
 
+/* Animations */
+
 .iconContainer, .feedbackHeader {
     opacity: 0;
     -webkit-animation: fadein 800ms; /* Safari, Chrome and Opera > 12.1 */
@@ -96,3 +98,5 @@
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+/* end - Animations */

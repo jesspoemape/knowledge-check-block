@@ -2,39 +2,39 @@ import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import AnimateHeight from 'react-animate-height';
 import QuestionContainer from './QuestionContainer';
-import questions from '../data/mockQuestions';
 import '../css/knowledgeCheckBlockContainer.css';
 import OptionsContainer from './OptionsContainer';
 import FeedbackBlock from './FeedbackBlock';
 import Reset from './Reset';
 
-const KnowledgeCheckBlockContainer = () => {
-    const [selectedAnswer, changeSelectedAnswer] = useState(null);
-    const [hasSubmitted, toggleHasSubmitted] = useState(false);
-    const didAnswerCorrectly = selectedAnswer === questions.question1.correctAnswer;
+const KnowledgeCheckBlockContainer = ({ questionData }) => {
+    // Hooks - State
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
 
-    const handleSubmit = () => {
-        toggleHasSubmitted(true);
-    }
+    const didAnswerCorrectly = selectedAnswer === questionData.correctAnswer;
 
+    /**
+     * Resets state of question
+     */
     const handleReset = () => {
-        toggleHasSubmitted(false);
-        changeSelectedAnswer(null);
+        setHasSubmitted(false);
+        setSelectedAnswer(null);
     }
     return (
         <div className="container">
-            <QuestionContainer imgSrc={questions.question1.image} questionText={questions.question1.question} />
+            <QuestionContainer imgSrc={questionData.image} questionText={questionData.question} />
             <OptionsContainer
-                possibleAnswers={questions.question1.possibleAnswers}
+                possibleAnswers={questionData.possibleAnswers}
                 selectedAnswer={selectedAnswer}
-                changeSelectedAnswer={changeSelectedAnswer}
+                changeSelectedAnswer={setSelectedAnswer}
                 hasSubmitted={hasSubmitted}
-                correctAnswer={questions.question1.correctAnswer}
+                correctAnswer={questionData.correctAnswer}
             />
             <CSSTransition in={!hasSubmitted} timeout={300} classNames="submitButton">
                 <button 
                     className={`submitButton${!selectedAnswer ? ' disabled' : ''}`}
-                    onClick={handleSubmit}
+                    onClick={() => setHasSubmitted(true)}
                     disabled={!selectedAnswer}
                 >
                     Submit
@@ -44,7 +44,7 @@ const KnowledgeCheckBlockContainer = () => {
                 <CSSTransition in={hasSubmitted} timeout={1200} classNames="feedbackBlock">
                     <div>
                         <FeedbackBlock
-                            feedbackText={questions.question1.feedbackMessage}
+                            feedbackText={questionData.feedbackMessage}
                             didAnswerCorrectly={didAnswerCorrectly}
                         />
                         <Reset resetQuestion={handleReset} />

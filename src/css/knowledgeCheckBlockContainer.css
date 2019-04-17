@@ -7,8 +7,9 @@
     box-sizing: border-box;
     -webkit-box-shadow: 0 0.4em 1.2em 0.2em rgba(0,0,0,.05);
     box-shadow: 0 0.4em 1.2em 0.2em rgba(0,0,0,.05);
-    margin-bottom: 4em;
-    margin-top: 4em;
+    margin-top: 12.5%;
+    margin-bottom: 12.5%;
+    max-width: 1000px;
 }
 
 .submitButton {
@@ -52,6 +53,8 @@
     border: none;
 }
 
+/* Submit Button animation */
+
 .submitButton-enter {
     opacity: 1;
     height: 3.5em;
@@ -85,6 +88,9 @@
     cursor: default;
 }
 
+/* end - Submit Button animation */
+
+/* Feedback Block animation */
 .feedbackBlock-enter {
     opacity: 0;
 }
@@ -111,3 +117,22 @@
 .feedbackBlock-exit-done {
     opacity: 0;
 }
+
+/* end - Feedback Block animation */
+
+/* Media Queries */
+@media screen and (max-width: 850px) {
+    .container {
+        width: 90%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+} 
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding-right: 1.75em;
+        padding-left: 1.75em;
+    }
+} 
+/* end - Media Queries */
